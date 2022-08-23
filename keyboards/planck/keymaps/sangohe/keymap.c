@@ -47,6 +47,7 @@ enum planck_keycodes {
 #define SFT_CAP LSFT_T(KC_CAPS)
 #define SFT_ENT RSFT_T(KC_ENT)
 #define NUM_ESC LT(NUMERIC, KC_ESC)
+#define RALT_LFT RALT_T(KC_LEFT)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -63,10 +64,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK_DH] = LAYOUT_planck_grid(
-    KC_TAB,  KC_Q,        KC_W,    KC_F,    KC_P,  KC_B,   KC_J,   KC_L,  KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
-    NUM_ESC, KC_A,        KC_R,    KC_S,    KC_T,  KC_G,   KC_M,   KC_N,  KC_E,    KC_I,    KC_O,    KC_QUOT,
-    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_D,  KC_V,   KC_K,   KC_H,  KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_TAB,  KC_Q,        KC_W,    KC_F,    KC_P,  KC_B,   KC_J,   KC_L,  KC_U,     KC_Y,    KC_SCLN, KC_BSPC,
+    NUM_ESC, KC_A,        KC_R,    KC_S,    KC_T,  KC_G,   KC_M,   KC_N,  KC_E,     KC_I,    KC_O,    KC_QUOT,
+    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_D,  KC_V,   KC_K,   KC_H,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
+    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty
@@ -81,10 +82,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-    KC_TAB,  KC_Q,        KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_BSPC,
-    NUM_ESC, KC_A,        KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_TAB,  KC_Q,        KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,     KC_O,    KC_P,    KC_BSPC,
+    NUM_ESC, KC_A,        KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,     KC_L,    KC_SCLN, KC_QUOT,
+    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
+    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Lower
@@ -125,20 +126,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Numerical Pad
  * ,-----------------------------------------------------------------------------------.
- * | Del  |      |      |      |   ^  |      |      |   1  |   2  |   3  |   (  | Del  |
+ * | Del  |      |      |      |   ^  |      |      |   1  |   2  |   3  |   (  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |   ,  |   .  |      |      |   4  |   5  |   6  |   [  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |   /  |   *  |   -  |   +  |      |      |   7  |   8  |   9  |   {  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |   _  |   0  |   =  |      |      |
+ * |      |      |      |      |      |             |   :  |   0  |   =  |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_NUMERIC] = LAYOUT_planck_grid(
     KC_DEL,  _______, _______, _______, KC_CIRC, _______, _______, KC_7,    KC_8, KC_9,   KC_LPRN, KC_BSPC,
     _______, _______, _______, KC_COMM, KC_DOT,  _______, _______, KC_4,    KC_5, KC_6,   KC_LBRC, _______,
     _______, KC_SLSH, KC_ASTR, KC_MINS, KC_PLUS, _______, _______, KC_1,    KC_2, KC_3,   KC_LCBR, _______,
-    _______, _______, _______, _______, _______, _______, _______, KC_UNDS, KC_0, KC_EQL, _______, _______
+    _______, _______, _______, _______, _______, _______, _______, KC_COLN, KC_0, KC_EQL, _______, _______
 ),
 
 /* Adjust (Lower + Raise)
