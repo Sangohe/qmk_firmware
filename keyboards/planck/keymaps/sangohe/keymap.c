@@ -43,7 +43,9 @@ enum planck_keycodes {
 #define CTRL_X LCTL(KC_X)
 #define CTRL_C LCTL(KC_C)
 #define CTRL_V LCTL(KC_V)
+#define CTRL_L LCTL(KC_L)
 #define CTRL_TAB LCTL(KC_TAB)
+#define CTRL_STAB RCS(KC_TAB)
 #define SFT_CAP LSFT_T(KC_CAPS)
 #define SFT_ENT RSFT_T(KC_ENT)
 #define NUM_ESC LT(NUMERIC, KC_ESC)
@@ -90,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |  Del |      |      |      |      |      |      | PgUp |  Up  | PgDn |      | Bksp |
+ * |      |      |      |Cl+STb|Cl+Tab|      |      |Ctrl+L|  Up  |      |      | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  Del |Ctrl+A|  Alt | Shift| Ctrl |      |      | Left | Down | Right|      |  |   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -100,10 +102,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
-    CTRL_TAB, _______, _______, _______, _______, _______, _______, KC_PGUP, KC_UP,   KC_PGDN, _______, KC_BSPC,
-    KC_DEL,   CTRL_A,  KC_LALT, KC_LSFT, KC_LCTL, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-    _______,  CTRL_Z,  CTRL_X,  CTRL_C,  CTRL_V,  _______, _______, KC_HOME, _______, KC_END,  _______, _______,
-    _______,  _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
+    _______,  _______, _______, CTRL_STAB, CTRL_TAB, _______, _______, CTRL_L,  KC_UP,   _______, _______, KC_BSPC,
+    KC_DEL,   CTRL_A,  KC_LALT, KC_LSFT,   KC_LCTL,  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+    _______,  CTRL_Z,  CTRL_X,  CTRL_C,    CTRL_V,   _______, _______, KC_HOME, _______, KC_END,  _______, _______,
+    _______,  _______, _______, _______,   _______,  _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
 ),
 
 /* Raise
