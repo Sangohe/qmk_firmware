@@ -44,6 +44,7 @@ enum planck_keycodes {
 #define CTRL_C LCTL(KC_C)
 #define CTRL_V LCTL(KC_V)
 #define CTRL_L LCTL(KC_L)
+#define CTRL_W LCTL(KC_W)
 #define CTRL_TAB LCTL(KC_TAB)
 #define CTRL_STAB RCS(KC_TAB)
 #define SFT_CAP LSFT_T(KC_CAPS)
@@ -102,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
-    _______,  _______, _______, CTRL_STAB, CTRL_TAB, _______, _______, CTRL_L,  KC_UP,   _______, _______, KC_BSPC,
+    _______,  _______, CTRL_W,  CTRL_STAB, CTRL_TAB, _______, _______, CTRL_L,  KC_UP,   _______, _______, KC_BSPC,
     KC_DEL,   CTRL_A,  KC_LALT, KC_LSFT,   KC_LCTL,  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
     _______,  CTRL_Z,  CTRL_X,  CTRL_C,    CTRL_V,   _______, _______, KC_HOME, _______, KC_END,  _______, _______,
     _______,  _______, _______, _______,   _______,  _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
