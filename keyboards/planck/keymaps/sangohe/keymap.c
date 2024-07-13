@@ -45,8 +45,14 @@ enum planck_keycodes {
 #define CTRL_V LCTL(KC_V)
 #define CTRL_L LCTL(KC_L)
 #define CTRL_W LCTL(KC_W)
+#define CTRL_F LCTL(KC_F)
+#define CTRL_P LCTL(KC_P)
+#define CTRL_K LCTL(KC_K)
+#define CTRL_O LCTL(KC_O)
+#define CTRL_SL LCTL(KC_SLSH)
 #define CTRL_TAB LCTL(KC_TAB)
 #define CTRL_STAB RCS(KC_TAB)
+#define CTRL_SA RCS(KC_A)
 #define SFT_CAP LSFT_T(KC_CAPS)
 #define SFT_ENT RSFT_T(KC_ENT)
 #define NUM_ESC LT(NUMERIC, KC_ESC)
@@ -67,10 +73,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_COLEMAK_DH] = LAYOUT_planck_grid(
-    KC_TAB,  KC_Q,        KC_W,    KC_F,    KC_P,  KC_B,   KC_J,   KC_L,  KC_U,     KC_Y,    KC_SCLN, KC_BSPC,
-    NUM_ESC, KC_A,        KC_R,    KC_S,    KC_T,  KC_G,   KC_M,   KC_N,  KC_E,     KC_I,    KC_O,    KC_QUOT,
-    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_D,  KC_V,   KC_K,   KC_H,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,  KC_B,   KC_J,   KC_L,  KC_U,     KC_Y,    KC_SCLN, KC_BSPC,
+    NUM_ESC, KC_A,    KC_R,    KC_S,    KC_T,  KC_G,   KC_M,   KC_N,  KC_E,     KC_I,    KC_O,    KC_QUOT,
+    SFT_CAP, KC_Z,    KC_X,    KC_C,    KC_D,  KC_V,   KC_K,   KC_H,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
+    KC_LCTL, KC_LALT, _______, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty
@@ -85,28 +91,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-    KC_TAB,  KC_Q,        KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,     KC_O,    KC_P,    KC_BSPC,
-    NUM_ESC, KC_A,        KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,     KC_L,    KC_SCLN, KC_QUOT,
-    SFT_CAP, KC_Z,        KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
-    KC_LCTL, TG(NUMERIC), KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,   KC_Y,   KC_U,  KC_I,     KC_O,    KC_P,    KC_BSPC,
+    NUM_ESC, KC_A,    KC_S,    KC_D,    KC_F,  KC_G,   KC_H,   KC_J,  KC_K,     KC_L,    KC_SCLN, KC_QUOT,
+    SFT_CAP, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,   KC_N,   KC_M,  KC_COMM,  KC_DOT,  KC_SLSH, SFT_ENT,
+    KC_LCTL, KC_LALT, _______, KC_LGUI, LOWER, KC_SPC, KC_SPC, RAISE, RALT_LFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Lower
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |Cl+STb|Cl+Tab|      |      |Ctrl+L|  Up  |      |      | Bksp |
+ * |      |      |Ctrl+W|Ctrl+F|Ctrl+P|      |      |Ctrl+L|  Up  | PgUp | PgDn | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  Del |Ctrl+A|  Alt | Shift| Ctrl |      |      | Left | Down | Right|      |  |   |
+ * |  Del |Ctrl+A|  Alt | Shift| Ctrl |      |ClS+Tb| Left | Down | Right|Ctrl+O|  |   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Ctrl+Z|Ctrl+X|Ctrl+C|Ctrl+V|      |      | Home |      | End  | End  |      |
+ * |      |Ctrl+Z|Ctrl+X|Ctrl+C|Ctrl+V|      |Ctrl+K| Home |      | End  | End  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      | Prev | Vol- | Vol+ | Next |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_planck_grid(
-    _______,  _______, CTRL_W,  CTRL_STAB, CTRL_TAB, _______, _______, CTRL_L,  KC_UP,   _______, _______, KC_BSPC,
-    KC_DEL,   CTRL_A,  KC_LALT, KC_LSFT,   KC_LCTL,  _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-    _______,  CTRL_Z,  CTRL_X,  CTRL_C,    CTRL_V,   _______, _______, KC_HOME, _______, KC_END,  _______, _______,
-    _______,  _______, _______, _______,   _______,  _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
+    _______, CTRL_SA, CTRL_W,  CTRL_F,  CTRL_P,  _______, CTRL_STAB, CTRL_L,  KC_UP,   KC_PGUP, KC_PGDN, KC_BSPC,
+    KC_DEL,  CTRL_A,  KC_LALT, KC_LSFT, KC_LCTL, _______, CTRL_TAB,  KC_LEFT, KC_DOWN, KC_RGHT, CTRL_O,  _______,
+    _______, CTRL_Z,  CTRL_X,  CTRL_C,  CTRL_V,  _______, CTRL_K,    KC_HOME, KC_TAB,  KC_END,  CTRL_SL, _______,
+    _______, _______, _______, _______, _______, _______, _______,   _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
 ),
 
 /* Raise
@@ -158,9 +164,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_ADJUST] = LAYOUT_planck_grid(
-    _______, QK_BOOT, DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,    RGB_VAI, RGB_VAD, KC_DEL ,
-    _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK_DH, _______, _______, _______,
-    _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF,   _______, _______, _______,
+    _______, QK_BOOT, _______, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,    RGB_VAI, RGB_VAD, KC_DEL ,
+    _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK_DH, _______, _______, _______,
+    _______, _______, _______, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______,    _______, _______, _______,
     _______, _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______
 )
 
